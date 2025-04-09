@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Brand Budgeting</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f0EEE9; /* Light Beige background for body */
+      color: #17184B; /* Dark Blue text color for readability */
+    }
+
+    /* Header Section */
+    header {
+      background-color: #17184B; /* Dark blue header */
+      color: white;
+      padding: 40px;
+      text-align: center;
+      display: grid;
+      grid-template-columns: 1fr; /* Single column layout */
+      grid-template-rows: auto auto; /* Two rows for title and description */
+      gap: 20px;
+      justify-items: center;
+      animation: fadeInHeader 1s ease-in-out;
+    }
+
+    /* Header Title */
+    header h1 {
+      font-size: 3rem;
+      animation: slideInText 1.5s ease-in-out;
+      color: #D8E63C; /* Bright yellow for the title */
+    }
+
+    /* Header Subtitle */
+    header p {
+      font-size: 1.2rem;
+      animation: slideInText 2s ease-in-out;
+      color: #D3dde7; /* Light Blue-Grey for subtitle */
+    }
+
+    /* Animations */
+    @keyframes fadeInHeader {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInText {
+      0% {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    /* Hero Section */
+    .hero {
+      background: url('https://img.freepik.com/free-photo/green-paint-brush-textured-background_53876-104801.jpg?t=st=1744213076~exp=1744216676~hmac=549cae4b8117f40cb9de7fe711f5ace84a20267443eea06aeb3887aeeec07544&w=1060') no-repeat center center/cover;
+      height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    .cta-button {
+      background-color: #D6B4FC; /* Light Purple for button */
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 20px;
+    }
+
+    .cta-button:hover {
+      background-color: #D8E63C; /* Bright Yellow for hover */
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 40px;
+      text-align: center;
+      animation: slideIn 1s ease-in-out;
+    }
+
+    .feature-item {
+      background-color: #D3dde7; /* Light Blue-Grey background for feature cards */
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .feature-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature-item img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    .feature-item h3 {
+      font-size: 1.5rem;
+      margin-top: 15px;
+      color: #17184B; /* Dark Blue for titles */
+    }
+
+    .feature-item p {
+      margin-top: 10px;
+      font-size: 1rem;
+      color: #7F8C8D; /* Lighter grey for descriptions */
+    }
+
+    .how-it-works, .pricing, .testimonials {
+      padding: 40px;
+      text-align: center;
+      background-color: #f0EEE9;
+      margin-top: 40px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .how-it-works h2, .pricing h2, .testimonials h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #17184B; /* Dark Blue for section titles */
+    }
+
+    .steps, .pricing-plans, .testimonial-cards {
+      display: flex;
+      justify-content: space-around;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .step, .pricing-plan, .testimonial-card {
+      background-color: #D8E63C; /* Bright Yellow for cards */
+      padding: 20px;
+      border-radius: 10px;
+      width: 30%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .step:hover, .pricing-plan:hover, .testimonial-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .pricing-plan {
+      width: 45%;
+    }
+
+    .testimonial-card {
+      width: 30%;
+    }
+
+    .step h3, .pricing-plan h3, .testimonial-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #17184B; /* Dark Blue for titles */
+    }
+
+    .pricing-plan p, .testimonial-card p {
+      font-size: 1rem;
+      color: #7F8C8D; /* Lighter grey for description text */
+    }
+
+    .cta-button-primary {
+      background-color: #16A085; /* Teal color for buttons */
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background-color 0.3s;
+    }
+
+    .cta-button-primary:hover {
+      background-color: #1ABC9C; /* Slightly lighter teal for hover */
+    }
+
+    /* Image Section */
+    .image-section {
+      padding: 40px;
+      text-align: center;
+      background-color: #f0EEE9;
+      margin-top: 40px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .image-section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #17184B; /* Dark Blue for section title */
+    }
+
+    .success-stories {
+      display: flex;
+      justify-content: space-around;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .story-card {
+      background-color: #D3dde7; /* Light Blue-Grey for each card */
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 30%;
+      transition: transform 0.3s;
+      text-align: left;
+    }
+
+    .story-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .story-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+      color: #17184B; /* Dark Blue for the title */
+    }
+
+    .story-card p {
+      font-size: 1rem;
+      color: #7F8C8D; /* Light grey for description text */
+      line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+      .success-stories {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .story-card {
+        width: 80%;
+        margin-bottom: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .story-card {
+        width: 100%;
+      }
+    }
+      /* Footer */
+      footer {
+      background-color: #17184B; /* Dark blue footer */
+      color: white;
+      padding: 40px;
+      text-align: center;
+      font-size: 1rem;
+    }
+
+    footer a {
+      color: #D8E63C; /* Bright Yellow links */
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    footer a:hover {
+      color: #D6B4FC; /* Light Purple on hover */
+    }
+
+    footer .social-icons {
+      margin-top: 20px;
+    }
+
+    footer .social-icons a {
+      margin: 0 15px;
+      font-size: 1.5rem;
+      color: #D8E63C; /* Bright Yellow for icons */
+      transition: color 0.3s;
+    }
+
+    footer .social-icons a:hover {
+      color: #D6B4FC; /* Light Purple on hover */
+    }
+    
+    /* Responsive design for footer */
+    @media (max-width: 768px) {
+      footer {
+        font-size: 0.9rem;
+      }
+    }
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Brand Budgeting</h1>
+    <p>Smart Branding Management for Startups & Small Businesses</p>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div>
+      <h2>Take Control of Your Branding Costs</h2>
+      <button class="cta-button">Get Started</button>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="feature-item">
+      <img src="https://blog.ninjavan.co/en-ph/wp-content/uploads/sites/2/2022/10/branding-and-color.jpg" alt="Track Your Budget">
+      <h3>Track Your Budget</h3>
+      <p>Effortlessly track every expense related to your brand to ensure you stay within budget.</p>
+    </div>
+    <div class="feature-item">
+      <img src="https://th.bing.com/th/id/OIP.IHgxMM8P2k7S8TM8nx1VIwHaE9?rs=1&pid=ImgDetMain" alt="Smart Recommendations">
+      <h3>Smart Recommendations</h3>
+      <p>Get data-driven insights to optimize your branding strategy and reduce unnecessary expenses.</p>
+    </div>
+    <div class="feature-item">
+      <img src="https://blog.ninjavan.co/en-ph/wp-content/uploads/sites/2/2022/10/branding-and-color.jpg" alt="Real-Time Analytics">
+      <h3>Real-Time Analytics</h3>
+      <p>Visualize your branding expenses in real-time with interactive reports and charts.</p>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="how-it-works">
+    <h2>How It Works</h2>
+    <div class="steps">
+      <div class="step">
+        <h3>Step 1: Set Your Budget</h3>
+        <p>Define your budget for branding activities and categorize your expenses.</p>
+      </div>
+      <div class="step">
+        <h3>Step 2: Track Your Spending</h3>
+        <p>Log your branding expenses and track them in real-time with our easy-to-use platform.</p>
+      </div>
+      <div class="step">
+        <h3>Step 3: Optimize & Save</h3>
+        <p>Get smart recommendations and insights to help optimize your spending and save more.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Plans Section -->
+  <section class="pricing">
+    <h2>Pricing Plans</h2>
+    <div class="pricing-plans">
+      <div class="pricing-plan">
+        <h3>Basic Plan</h3>
+        <p>$19/month</p>
+        <p>Ideal for freelancers and small startups with a limited branding budget.</p>
+        <button class="cta-button-primary">Sign Up</button>
+      </div>
+      <div class="pricing-plan">
+        <h3>Standard Plan</h3>
+        <p>$49/month</p>
+        <p>Perfect for growing businesses that need more advanced budgeting tools.</p>
+        <button class="cta-button-primary">Sign Up</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <h2>What Our Clients Say</h2>
+    <div class="testimonial-cards">
+      <div class="testimonial-card">
+        <h3>John Doe</h3>
+        <p>"Brand Budgeting has helped me keep track of my branding expenses, making it easier to stick to my budget and grow my business."</p>
+      </div>
+      <div class="testimonial-card">
+        <h3>Jane Smith</h3>
+        <p>"The smart recommendations are invaluable. I’ve saved so much on branding costs thanks to this tool!"</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Image Section -->
+  <section class="image-section">
+    <h2>Success Stories</h2>
+    <div class="success-stories">
+      <div class="story-card">
+        <h3>Success Story 1</h3>
+        <p>Discover how one of our clients reduced their branding costs by 30% with our platform.</p>
+      </div>
+      <div class="story-card">
+        <h3>Success Story 2</h3>
+        <p>Learn how another client achieved brand growth with a tighter budget and smarter decisions.</p>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <p>&copy; 2025 Brand Budgeting. All Rights Reserved.</p>
+    <div class="social-icons">
+      <a href="#" target="_blank">Facebook</a>
+      <a href="#" target="_blank">Twitter</a>
+      <a href="#" target="_blank">Instagram</a>
+      <a href="#" target="_blank">LinkedIn</a>
+    </div>
+  </footer>
+
+</body>
+</html>
